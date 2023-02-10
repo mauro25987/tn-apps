@@ -14,3 +14,6 @@
 ### Added
     - routes
     - blueprints
+    - folder templates, static
+    - requeriments
+    - commands
