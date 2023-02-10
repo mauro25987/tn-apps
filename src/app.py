@@ -1,10 +1,14 @@
 from flask import Flask
+from utils.config import DevelopmentConfig
 
-app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return 'hola mundo'
+def create_app():
+    app = Flask(__name__)
 
-if __name__ == '__main__':
-    app.run()
+    app.config.from_object(DevelopmentConfig())
+
+    @app.route('/')
+    def index():
+        return 'hola mundo'
+
+    return app
