@@ -1,5 +1,5 @@
 from flask import Flask
-from utils.config import DevelopmentConfig
+from utils.config import db, DevelopmentConfig
 from utils.commands import list_commands
 from routes.auth import auth as auth_blueprint
 from routes.main import main as main_blueprint
@@ -11,6 +11,9 @@ def create_app():
 
     # load configs class
     app.config.from_object(DevelopmentConfig())
+
+    # initialize database
+    db.init_app(app)
 
     # register blueprints
     app.register_blueprint(auth_blueprint)

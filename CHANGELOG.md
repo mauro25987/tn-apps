@@ -1,7 +1,7 @@
 # Change Log
  
 ## [1.0.0] - 2023-02-09
-    - initial version
+    - Flask app initial version
  
 ## [1.0.1] - 2023-02-10
 
@@ -17,3 +17,11 @@
     - folder templates, static
     - requeriments
     - commands
+
+## [1.0.3] - 2023-02-12
+
+### Added
+    - implement sqlalchemy with multiple databases
+    - automap reflect existin databases
+    - session personalized for databases.
+    - implement vars enviroment with dotenv, .env file
