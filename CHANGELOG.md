@@ -25,3 +25,9 @@
     - automap reflect existin databases
     - session personalized for databases.
     - implement vars enviroment with dotenv, .env file
+
+## [1.0.4] - 2023-02-13
+
+### Added
+    - add commdands with blueprints
+    - add templates for callfinder
