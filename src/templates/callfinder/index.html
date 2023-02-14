@@ -4,60 +4,111 @@
 
 {% block body %}
     <div class="container">
-        <div class="d-flex flex-column flex-wrap justify-content-around mb-3">
-            <div class="d-flex flex-row flex-wrap justify-content-around mb-3">
-                <div class="d-flex flex-column flex-wrap justify-content-around mb-3">
-                    <div>
-                        source
-                    </div>
-                    <div>
-                        type
-                    </div>
-                    <div>
-                        campaign
-                    </div>
-                    <div>
-                        agent
-                    </div>
+        <div class="d-flex flex-row justify-content-around mb-3">
+            <div class="d-flex flex-column flex-wrap justify-content-around mb-3">
+                <div>
+                    <label for="source">Source</label>
+                    <select class="form-select" id="source" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
-                <div class="d-flex flex-column flex-wrap justify-content-around mb-3">
-                    <div>
-                        ingroup
-                    </div>
-                    <div>
-                        disposition
-                    </div>
+                <div>
+                    <label for="type">Type</label>
+                    <select class="form-select" id="type" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
-                <div class="d-flex flex-column flex-wrap justify-content-around mb-3">
-                    <div>
-                        date / hour from
-                    </div>
-                    <div>
-                        date / hour to
-                    </div>
-                    <div class="d-flex flex-row flex-wrap justify-content-around mb-3">
-                        <div>
-                            length from (secs)
-                        </div>
-                        <div>
-                            length to (secs)
-                        </div>
-                    </div>
-                    <div>
-                        phone number
-                    </div>
+                <div>
+                    <label for="campaign">Campaign</label>
+                    <select class="form-select" id="campaign" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
-                <div class="d-flex flex-row flex-wrap justify-content-around mb-3">
-                    <div>
-                        custom fields available
-                    </div>
-                    <div>
-                        custom fields selected
-                    </div>
+                <div>
+                    <label for="agent">Agent</label>
+                    <select class="form-select" id="agent" aria-label="Default select example" multiple>
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary">Primary</button>
                 </div>
             </div>
-            <div>
-                search
+            <div class="d-flex flex-column flex-wrap justify-content-around mb-3">
+                <div>
+                    <label for="source">Ingroup</label>
+                    <select class="form-select" id="ingroup" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="source">Disposition</label>
+                    <select class="form-select" id="disposition" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-around mb-3">
+                <div>
+                    <label for="datefrom">Date / Hour from</label>
+                    <input type="datetime-local" id="datefrom">
+                </div>
+                <div>
+                    <label for="dateto">Date / Hour to</label>
+                    <input type="datetime-local" id="dateto">
+                </div>
+                <div class="d-flex flex-row justify-content-around mb-3">
+                    <div>
+                        <label for="secsfrom">Length from (secs)</label>
+                        <input type="number" id="secsfrom">
+                    </div>
+                    <div>
+                        <label for="secsfrom">Length from (secs)</label>
+                        <input type="number" id="secsfrom">
+                    </div>
+                </div>
+                <div>
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone">
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-around mb-3">
+                <div>
+                    <label for="field-available">Custom fields available</label>
+                    <select class="form-select" id="field-available" aria-label="Default select example" multiple>
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="field-selected">Custom fields selected</label>
+                    <select class="form-select" id="field-selected" aria-label="Default select example" multiple>
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
