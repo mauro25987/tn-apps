@@ -33,8 +33,8 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = SQLITE_CONNECTION_URI
     SQLALCHEMY_BINDS = {
-        "vicibox":  MYSQL_CONNECTION_URI,
-        "vicibox2": MYSQL2_CONNECTION_URI,
+        "vicidial":  MYSQL_CONNECTION_URI,
+        "vicidial2": MYSQL2_CONNECTION_URI,
     }
 
 
@@ -44,6 +44,12 @@ class ProductionConfig(Config):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = SQLITE_CONNECTION_URI
     SQLALCHEMY_BINDS = {
-        "vicibox":  MYSQL_CONNECTION_URI,
-        "vicibox2": MYSQL2_CONNECTION_URI,
+        "vicidial":  MYSQL_CONNECTION_URI,
+        "vicidial2": MYSQL2_CONNECTION_URI,
     }
+
+
+config = {
+    "development":  DevelopmentConfig,
+    "production":   ProductionConfig,
+}

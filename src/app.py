@@ -1,16 +1,16 @@
 from flask import Flask
-from utils.config import db, DevelopmentConfig
+from utils.config import db, config
 from routes.auth import auth as auth_blueprint
 from routes.main import main as main_blueprint
 from routes.callfinder import callfinder as callfinder_blueprint
 from routes.commands import commands as commands_blueprint
 
 
-def create_app():
+def create_app(enviroment):
     app = Flask(__name__)
 
     # load configs class
-    app.config.from_object(DevelopmentConfig())
+    app.config.from_object(enviroment)
 
     # initialize database
     db.init_app(app)
@@ -22,3 +22,6 @@ def create_app():
     app.register_blueprint(commands_blueprint)
 
     return app
+
+
+enviroment = config['development']

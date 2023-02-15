@@ -9,10 +9,10 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def index():
     Base = automap_base()
-    Base.prepare(db.engines['vicibox'])
+    Base.prepare(db.engines['vicidial'])
     Users = Base.classes.vicidial_users
 
-    session = Session(db.get_engine('vicibox'))
+    session = Session(db.get_engine('vicidial'))
 
     result = session.execute(db.select(Users)).scalars()
     # result2 = session.query(Users).all()
