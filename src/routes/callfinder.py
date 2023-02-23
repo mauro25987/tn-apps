@@ -36,6 +36,20 @@ types = {
     "inbound":  "Inbound",
 }
 
+fields = {
+    "COMMENTS":         "Comments",
+    "FULL_NAME":        "Full Name",
+    "ADDRESS1":         "Address 1",
+    "ADDRESS2":         "Address 2",
+    "ADDRESS3":         "Address 3",
+    "CITY":             "City",
+    "STATE":            "State",
+    "POSTAL_CODE":      "Postal Code",
+    "GENDER":           "Gender",
+    "DATE_OF_BIRTH":    "Date of Birth",
+    "EMAIL":            "E-Mail",
+}
+
 
 @callfinder.route('/')
 def index():
@@ -184,3 +198,8 @@ def get_dispos_campaign(source, campaign):
         result.append([i.status, i.status_name])
 
     return jsonify(result)
+
+
+@callfinder.route('api/_get_custom_fields')
+def get_custom_fields():
+    return jsonify(fields)

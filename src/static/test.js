@@ -4,6 +4,7 @@ const agents = document.getElementById("agents");
 const types = document.getElementById("types");
 const ingroups = document.getElementById("ingroups");
 const dispos = document.getElementById("dispos");
+const fields = document.getElementById("fields");
 
 const getSources = () => {
     axios.get(SCRIPT_ROOT + "api/_get_sources")
@@ -104,6 +105,18 @@ const getDisposByCampaign = () => {
         });
 }
 
+const getCustomFields = () => {
+    axios.get(SCRIPT_ROOT + "api/_get_custom_fields")
+        .then( response => {
+            for(elem in response.data){
+                let option = document.createElement("option");
+                option.value = elem;
+                option.text = response.data[elem]
+                fields.appendChild(option);
+            };           
+        });
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     getSources();
 });
@@ -111,6 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
 sources.addEventListener("change", () => {
     getCampaigns();
     getTypes();
+    getCustomFields();
 });
 
 campaigns.addEventListener("change", () => {
