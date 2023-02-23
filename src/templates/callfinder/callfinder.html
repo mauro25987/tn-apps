@@ -1,0 +1,227 @@
+{% extends 'layout.html' %}
+
+{% block title %}Callfinder{% endblock %}
+
+{% block head %}
+    <script type="text/javascript">
+        const SCRIPT_ROOT = {{ request.script_root|tojson }}
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <form action="" method="post" id="form">
+            <!--
+            <div class="d-flex flex-row justify-content-around mb-3">
+                <div class="d-flex flex-column flex-wrap justify-content-around mb-3">
+                    <div>
+                        <label for="source">Source</label>
+                        <select class="form-select" id="source" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="type">Type</label>
+                        <select class="form-select" id="type" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="campaign">Campaign</label>
+                        <select class="form-select" id="campaign" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="agent">Agent</label>
+                        <select class="form-select" id="agent" aria-label="Default select example" multiple>
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+                <div class="d-flex flex-column flex-wrap justify-content-around mb-3">
+                    <div>
+                        <label for="source">Ingroup</label>
+                        <select class="form-select" id="ingroup" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="source">Disposition</label>
+                        <select class="form-select" id="disposition" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-around mb-3">
+                    <div>
+                        <label for="datefrom">Date / Hour from</label>
+                        <input type="datetime-local" id="datefrom">
+                    </div>
+                    <div>
+                        <label for="dateto">Date / Hour to</label>
+                        <input type="datetime-local" id="dateto">
+                    </div>
+                    <div class="d-flex flex-row justify-content-around mb-3">
+                        <div>
+                            <label for="secsfrom">Length from (secs)</label>
+                            <input type="number" id="secsfrom">
+                        </div>
+                        <div>
+                            <label for="secsfrom">Length from (secs)</label>
+                            <input type="number" id="secsfrom">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-around mb-3">
+                    <div>
+                        <label for="field-available">Custom fields available</label>
+                        <select class="form-select" id="field-available" aria-label="Default select example" multiple>
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="field-selected">Custom fields selected</label>
+                        <select class="form-select" id="field-selected" aria-label="Default select example" multiple>
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            -->
+            <div class="row">
+                <div class="col-3">
+                    <div class="row">
+                        <label for="source">Source</label>
+                        <select class="form-select" id="sources">
+                            <!--{% for source in data %}
+                                <option value="{{ source }}">{{ source }}</option>
+                            {% endfor %}-->
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label for="type">Type</label>
+                        <select class="form-select" id="type">
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label for="campaigns">Campaigns</label>
+                        <select class="form-select" id="campaigns">
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label for="agent">Agent</label>
+                        <select class="form-select" id="agent" aria-label="Default select example" multiple>
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <label for="source">Ingroup</label>
+                        <select class="form-select" id="ingroup" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label for="source">Disposition</label>
+                        <select class="form-select" id="disposition" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <label for="datefrom">Date / Hour from</label>
+                        <input type="datetime-local" id="datefrom">
+                    </div>
+                    <div class="row">
+                        <label for="dateto">Date / Hour to</label>
+                        <input type="datetime-local" id="dateto">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="secsfrom">Length from (secs)</label>
+                            <input type="number" id="secsfrom">
+                        </div>
+                        <div class="col-6">
+                            <label for="secsfrom">Length from (secs)</label>
+                            <input type="number" id="secsfrom">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="field-available">Custom fields available</label>
+                            <select class="form-select" id="field-available" aria-label="Default select example" multiple>
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="field-selected">Custom fields selected</label>
+                            <select class="form-select" id="field-selected" aria-label="Default select example" multiple>
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='callfinder.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block title %}Callfinder{% endblock %}
+
+{% block head %}
+    <script type="text/javascript">
+        const SCRIPT_ROOT = {{ request.script_root|tojson }}
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <form action="" method="post" id="form">
+                <div class="row">
+                    <div class="col-3">
+                        <label for="source">Source</label>
+                        <select class="form-select" id="sources">
+                            <option selected>Open this select menu</option>
+                            <!--{% for source in data %}
+                                <option value="{{ source }}">{{ source }}</option>
+                            {% endfor %}-->
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="type">Type</label>
+                        <select class="form-select" id="type">
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="campaigns">Campaigns</label>
+                        <select class="form-select" id="campaigns">
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="Agents">Agents</label>
+                        <select class="form-select" id="agents">
+                        </select>
+                    </div>            
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='test.js') }}"></script>
+{% endblock %}

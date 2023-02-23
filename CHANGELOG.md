@@ -32,3 +32,10 @@
     - add commdands with blueprints
     - add templates for callfinder
     - add bootstrap
+
+## [1.0.5] - 2023-02-22
+
+### Added
+    - add js functions for api callfinder
+    - add api functions sources, campaigns, types, agents
+    - add form with api functions
