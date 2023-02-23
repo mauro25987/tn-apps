@@ -39,3 +39,10 @@
     - add js functions for api callfinder
     - add api functions sources, campaigns, types, agents
     - add form with api functions
+
+## [1.0.6] - 2023-02-23
+
+### Added
+    - add js functions for api callfinder
+    - add api functions ingroups and dispositions
+    - add form with api functions

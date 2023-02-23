@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, jsonify
 from utils.config import db
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
+from sqlalchemy.sql.functions import concat
 from sqlalchemy import String, Column, and_, or_
 from dotenv import load_dotenv
 import os
@@ -129,5 +130,57 @@ def get_campaigns_type(source, type):
     result = list()
     for i in query_result:
         result.append([i.campaign_id, i.campaign_name])
+
+    return jsonify(result)
+
+
+@callfinder.route('api/_get_ingroups_by_campaign/<source>/<campaign>')
+def get_ingroups_campaign(source, campaign):
+    Base = automap_base()
+    Base.prepare(db.engines[source])
+    Campaigns = Base.classes.vicidial_campaigns
+    Ingroups = Base.classes.vicidial_inbound_groups
+
+    session = Session(db.get_engine(source))
+
+    query_result = (
+        session.query(Ingroups)
+        .join(Campaigns, and_(Campaigns.closer_campaigns.like(concat('%',
+        Ingroups.group_id, '%')), Campaigns.campaign_id == campaign))
+    )
+
+    result = list()
+    for i in query_result:
+        result.append([i.group_id, i.group_name])
+
+    return jsonify(result)
+
+
+@callfinder.route('api/_get_dispos_by_campaign/<source>/<campaign>')
+def get_dispos_campaign(source, campaign):
+    Base = automap_base()
+
+    class CStatus(Base):
+        __tablename__ = "vicidial_campaign_statuses"
+        status = Column(String, primary_key=True)
+
+    Base.prepare(db.engines[source])
+    Status = Base.classes.vicidial_statuses
+
+    session = Session(db.get_engine(source))
+
+    query1 = (
+        session.query(CStatus.status, CStatus.status_name)
+        .filter(CStatus.campaign_id == campaign)
+        .order_by(CStatus.status_name)
+    )
+    query2 = ( 
+        session.query(Status.status, Status.status_name)
+        .order_by(Status.status_name)
+    )
+    query_result = query1.union(query2)
+    result = list()
+    for i in query_result:
+        result.append([i.status, i.status_name])
 
     return jsonify(result)

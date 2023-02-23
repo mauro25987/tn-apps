@@ -12,30 +12,38 @@
     <div class="container-fluid">
         <form action="" method="post" id="form">
                 <div class="row">
-                    <div class="col-3">
-                        <label for="source">Source</label>
+                    <div class="col-2">
+                        <label for="sources">Source</label>
                         <select class="form-select" id="sources">
                             <option selected>Open this select menu</option>
-                            <!--{% for source in data %}
-                                <option value="{{ source }}">{{ source }}</option>
-                            {% endfor %}-->
                         </select>
                     </div>
-                    <div class="col-3">
-                        <label for="type">Type</label>
-                        <select class="form-select" id="type">
+                    <div class="col-2">
+                        <label for="types">Type</label>
+                        <select class="form-select" id="types">
                         </select>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <label for="campaigns">Campaigns</label>
                         <select class="form-select" id="campaigns">
                         </select>
                     </div>
-                    <div class="col-3">
-                        <label for="Agents">Agents</label>
+                    <div class="col-2">
+                        <label for="agents">Agents</label>
                         <select class="form-select" id="agents">
                         </select>
-                    </div>            
+                    </div>
+                    <div class="col-2">
+                        <label for="ingroup">Ingroups</label>
+                        <select class="form-select" id="ingroups">
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <label for="dispos">Dispositions</label>
+                        <select class="form-select" id="dispos">
+                        </select>
+                    </div>
+                </div>           
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
