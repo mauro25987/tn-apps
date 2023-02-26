@@ -56,3 +56,11 @@
 
 ### Added
     - add form value names, test args from form
+
+## [1.0.9] - 2023-02-26
+
+### Added
+    - add Flask-Login
+    - add model User
+    - add command create-user
+    - add initial routes for admin and auth

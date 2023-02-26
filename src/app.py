@@ -1,6 +1,7 @@
 from flask import Flask
-from utils.config import db, config
+from utils.config import db, config, login_manager
 from routes.auth import auth as auth_blueprint
+from routes.admin import admin as admin_blueprint
 from routes.main import main as main_blueprint
 from routes.callfinder import callfinder as callfinder_blueprint
 from routes.commands import commands as commands_blueprint
@@ -15,8 +16,12 @@ def create_app(enviroment):
     # initialize database
     db.init_app(app)
 
+    # initialize login manager
+    login_manager.init_app(app)
+
     # register blueprints
     app.register_blueprint(auth_blueprint)
+    app.register_blueprint(admin_blueprint)
     app.register_blueprint(main_blueprint)
     app.register_blueprint(callfinder_blueprint)
     app.register_blueprint(commands_blueprint)
