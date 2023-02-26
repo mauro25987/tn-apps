@@ -51,3 +51,8 @@
 
 ### Added
     - add api functions custom fields
+
+## [1.0.8] - 2023-02-25
+
+### Added
+    - add form value names, test args from form
