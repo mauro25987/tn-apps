@@ -10,42 +10,45 @@
 
 {% block body %}
     <div class="container-fluid">
-        <form action="" method="post" id="form">
+        <form action="{{ url_for('callfinder.get_recordings') }}" method="post">
             <div class="row">
                 <div class="col-3">
                     <div class="row">
                         <label for="sources">Source</label>
-                        <select class="form-select" id="sources">
+                        <select class="form-select" id="sources" name="sources">
                             <option selected>Open this select menu</option>
                         </select>
                     </div>
                     <div class="row">
                         <label for="types">Type</label>
-                        <select class="form-select" id="types"></select>
+                        <select class="form-select" id="types" name="types"></select>
                     </div>
                     <div class="row">
                         <label for="campaigns">Campaigns</label>
-                        <select class="form-select" id="campaigns"></select>
+                        <select class="form-select" id="campaigns" name="campaigns"></select>
                     </div>
                     <div class="row">
                         <label for="agents">Agents</label>
-                        <select class="form-select" id="agents"></select>
+                        <select class="form-select" id="agents" name="agents"></select>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-primary" type="submit">Add</button>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="row">
                         <label for="ingroup">Ingroups</label>
-                        <select class="form-select" id="ingroups"></select>
+                        <select class="form-select" id="ingroups" name="ingroups"></select>
                     </div>
                     <div class="row">
                         <label for="dispos">Dispositions</label>
-                        <select class="form-select" id="dispos"></select>
+                        <select class="form-select" id="dispos" name="dispos"></select>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="row">
                         <label for="fields">Custom Fields Available</label>
-                        <select class="form-select" id="fields"></select>
+                        <select class="form-select" id="fields" name="fields"></select>
                     </div>
                 </div>
             </div>           

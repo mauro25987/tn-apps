@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, request
 from utils.config import db
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -203,3 +203,9 @@ def get_dispos_campaign(source, campaign):
 @callfinder.route('api/_get_custom_fields')
 def get_custom_fields():
     return jsonify(fields)
+
+
+@callfinder.route('api/_get_recordings', methods=['POST'])
+def get_recordings():
+    print(request.form)
+    return 'hola'
