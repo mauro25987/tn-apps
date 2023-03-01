@@ -64,3 +64,11 @@
     - add model User
     - add command create-user
     - add initial routes for admin and auth
+
+## [1.1.0] - 2023-03-01
+
+### Added
+    - add Flask-WTF and WTForm
+    - add models LoginForm, User, AppList, AppUser 
+    - implement login and logout
+    - add main index
