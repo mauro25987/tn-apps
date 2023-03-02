@@ -72,3 +72,13 @@
     - add models LoginForm, User, AppList, AppUser 
     - implement login and logout
     - add main index
+
+## [1.1.1] - 2023-03-02
+
+### Added
+    - add Flask-Migrate
+    - add commands list-commands, list-users, create-user, init-db and drop-db
+    - add form RegisterForm
+
+### Fixed
+    - forms and models existing

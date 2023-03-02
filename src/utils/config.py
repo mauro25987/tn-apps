@@ -2,9 +2,11 @@ import os
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_migrate import Migrate
 
 load_dotenv()
 db = SQLAlchemy()
+migrate = Migrate()
 login_manager = LoginManager()
 
 db_sqlite = os.environ['SQLITE_DB']

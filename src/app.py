@@ -1,5 +1,5 @@
 from flask import Flask
-from utils.config import db, config, login_manager
+from utils.config import db, migrate, config, login_manager
 from routes.auth import auth as auth_blueprint
 from routes.admin import admin as admin_blueprint
 from routes.main import main as main_blueprint
@@ -13,8 +13,9 @@ def create_app(enviroment):
     # load configs class
     app.config.from_object(enviroment)
 
-    # initialize database
+    # initialize database and migrate
     db.init_app(app)
+    migrate.init_app(app, db, render_as_batch=True)
 
     # initialize login manager
     login_manager.init_app(app)

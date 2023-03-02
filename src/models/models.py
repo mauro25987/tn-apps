@@ -7,9 +7,9 @@ class User(UserMixin, db.Model):
     __bind_key__ = None
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), unique=True, nullable=False)
     name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=True)
     is_admin = db.Column(db.Boolean, nullable=False)
@@ -29,7 +29,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password, password)
 
 
-class AppList(UserMixin, db.Model):
+class App(UserMixin, db.Model):
     __bind_key__ = None
 
     id = db.Column(db.Integer, primary_key=True)
@@ -49,7 +49,7 @@ class AppUser(UserMixin, db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    id_app = db.Column(db.Integer, db.ForeignKey('applist.id'), nullable=False)
+    id_app = db.Column(db.Integer, db.ForeignKey('app.id'), nullable=False)
     url = db.Column(db.String(100), nullable=False)
     sources = db.Column(db.String(100), nullable=False)
     campaigns = db.Column(db.String(100), nullable=False)
@@ -61,5 +61,5 @@ class AppUser(UserMixin, db.Model):
         self.sources = sources
         self.campaigns = campaigns
 
-    # def __repr__(self):
-    #    return f'App: {self.name}'
+    def __repr__(self):
+        return f'App: {self.id}'
