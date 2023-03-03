@@ -46,7 +46,7 @@ def create_user(username, password, email, name, last_name, is_admin):
     else:
         is_admin = False
     user = User(
-        username, generate_password_hash(password, method="sha256"),
+        username, generate_password_hash(password, method='sha256'),
         email, name, last_name, is_admin
     )
     db.session.add(user)

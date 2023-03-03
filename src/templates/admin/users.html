@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+    <div class="col">
+        {% include 'partials/_message.html' %}
+        {% include 'admin/partials/_userlist.html' %}
+    </div>
+    <div class="col">
+        {% include 'admin/partials/_useradd.html' %}
+    </div>
+{% endblock %}

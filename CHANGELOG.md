@@ -82,3 +82,14 @@
 
 ### Fixed
     - forms and models existing
+
+## [1.1.2] - 2023-03-03
+
+### Added
+    - add CSRF support
+    - add html templates _useradd, _userlist, users, _message.
+    - add messages flash with forms
+    - add implement route users and register user. 
+
+### Fixed
+    - form Registerform

@@ -1,0 +1,13 @@
+{% for i in users %}
+    <div class="row">
+        {{ i.username }}
+        {{ i.email }}
+        {{ i.name }}
+        {{ i.last_name }}
+        {% if i.is_admin %}
+            Administrador
+        {% else %}
+            Usuario
+        {% endif %}
+    </div>
+{% endfor %}

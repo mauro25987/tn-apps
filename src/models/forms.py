@@ -13,10 +13,13 @@ class RegisterForm(FlaskForm):
         'Username', validators=[InputRequired(), Length(min=3, max=50)]
         )
     password = PasswordField(
-        'Password', validators=[InputRequired(), Length(min=6, max=50)]
+        'Password', validators=[
+            InputRequired(), Length(min=6, max=50),
+            EqualTo('password_confirm', message='Password incorrect')
+            ]
         )
     password_confirm = PasswordField(
-        'Repeat Password', validators=[InputRequired(), EqualTo('password')]
+        'Repeat Password', validators=[InputRequired()]
         )
     email = EmailField(
         'Email', validators=[InputRequired(), Length(min=5, max=50)]
@@ -25,4 +28,4 @@ class RegisterForm(FlaskForm):
         'Name', validators=[InputRequired(), Length(min=3, max=50)]
         )
     last_name = StringField('Last Name', validators=[Length(min=3, max=50)])
-    is_admin = BooleanField('Admin', validators=[InputRequired()])
+    is_admin = BooleanField('Admin')
