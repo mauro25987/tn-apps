@@ -40,9 +40,14 @@ def user_register():
 
 @admin.route('/user/update/<id>')
 def user_update(id):
-    pass
+    #
+    return render_template('admin/userupdate.html')
 
 
 @admin.route('/users/delete/<id>')
 def user_delete(id):
-    pass
+    user = User.query.get(id)
+    db.session.delete(user)
+    db.session.commit()
+    flash(f'User {user.username} deleted successfully')
+    return redirect(url_for('admin.users'))

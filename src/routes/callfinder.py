@@ -205,7 +205,9 @@ def get_custom_fields():
     return jsonify(fields)
 
 
-@callfinder.route('api/_get_recordings', methods=['POST'])
+@callfinder.route('api/_get_recordings', methods=['GET', 'POST'])
 def get_recordings():
-    print(request.form)
+    source, type = request.args['source'], request.args['type']
+    campaign, agent = request.args['campaign'], request.args['agent'] 
+    date_from, date_to = request.args['date_from'], request.args['date_to']
     return 'hola'

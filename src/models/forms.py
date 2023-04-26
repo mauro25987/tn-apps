@@ -29,3 +29,7 @@ class RegisterForm(FlaskForm):
         )
     last_name = StringField('Last Name', validators=[Length(min=3, max=50)])
     is_admin = BooleanField('Admin')
+
+
+class UpdateForm(FlaskForm):
+    pass

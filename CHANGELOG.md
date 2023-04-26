@@ -93,3 +93,8 @@
 
 ### Fixed
     - form Registerform
+
+## [1.1.3] - 2023-04-25
+
+### Added
+    - add minnor changes
